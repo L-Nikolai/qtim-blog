@@ -1,0 +1,11 @@
+@use '~/assets/styles/tokens/colors';
+@use '~/assets/styles/tokens/typography';
+
+@use '~/assets/styles/tools/mixins';
+@use '~/assets/styles/tools/functions';
+
+body {
+  font-family: $font-family-base;
+  color: $black-primary;
+  line-height: 1.5;
+}
