@@ -5,8 +5,7 @@
     </h1>
 
     <div class="hero">
-      <BaseSkeleton v-if="!heroLoaded" height="500px" border-radius="16px" />
-
+      <Skeleton v-if="!heroLoaded" height="500px" border-radius="16px" />
       <img
         :src="post.image"
         :alt="post.title"
@@ -26,6 +25,7 @@
 </template>
 
 <script lang="ts" setup>
+import { Skeleton} from '~/shared/base-ui'
 const { params } = useRoute()
 const { $api } = useNuxtApp()
 
@@ -38,6 +38,7 @@ const { data: post } = await useAsyncData(`article-${params.id}`, () =>
 
 <style scoped lang="scss">
 .article-page {
+  @include flex-column(toRem(32));
   padding: toRem(60) toRem(120);
   background: #f5f5f5;
   min-height: 100vh;
@@ -48,23 +49,22 @@ const { data: post } = await useAsyncData(`article-${params.id}`, () =>
   font-weight: 500;
   line-height: 1.1;
   margin-bottom: toRem(40);
-  max-width: 900px;
+  max-width: toRem(900);
 }
 
 .hero {
-  position: relative;
-  height: toRem(500);
-  overflow: hidden;
+  @include flex-center();
+
+  max-height: toRem(700);
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
+    max-width: 100%;
+    max-height: toRem(700);
+    width: auto;
+    height: auto;
     opacity: 0;
-    transition: opacity 0.4s ease;
 
-    &.loaded {
+     &.loaded {
       opacity: 1;
     }
   }

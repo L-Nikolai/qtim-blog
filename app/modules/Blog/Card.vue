@@ -1,7 +1,7 @@
 <template>
   <NuxtLink :to="`/articles/${post.id}`" class="card">
     <div class="image-wrapper">
-      <Sceleton v-if="!imageLoaded" height="240px" border-radius="16px" />
+      <Skeleton v-if="!imageLoaded" height="240px" border-radius="16px" />
       <img
         :src="post.image"
         :alt="post.title"
@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { BlogPost } from '~/shared/api/modules/blog/types'
-import { Sceleton } from '~/shared/base-ui'
+import { Skeleton } from '~/shared/base-ui'
 
 interface Props {
   post: BlogPost
