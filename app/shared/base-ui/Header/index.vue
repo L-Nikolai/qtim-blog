@@ -18,6 +18,7 @@ import Logo from '~/shared/icons/Logo.vue'
 .header {
   @include flex-between();
   padding: toRem(48) toRem(40);
+  font-size: toRem(20);
 
   &__content {
     @include flex-row(toRem(90));

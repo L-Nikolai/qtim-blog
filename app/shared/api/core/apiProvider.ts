@@ -1,4 +1,3 @@
-// api/core/ApiProvider.ts
 import type { RuntimeConfig } from 'nuxt/schema'
 import axios, { type AxiosInstance } from 'axios'
 import { Context } from '~/shared/api/types/context'

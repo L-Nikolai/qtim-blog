@@ -3,9 +3,9 @@
   <div>
     <slot />
   </div>
-
+  <Footer/>
 </template>
 
 <script lang="ts" setup>
-import Header  from '~/modules/Header/index.vue'
+import { Header, Footer } from '~/modules'
 </script>

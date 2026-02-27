@@ -13,10 +13,10 @@
       </span>
     </template>
     <template #actions>
-      <Button outlined label="1" type="icon" height="3.25rem">
+      <Button outlined label="1" type="icon" height="3.25rem" >
         <FlagGb />
       </Button>
-      <Button label="Let’s work" height="3.25rem" />
+      <Button label="Let’s work" height="3.25rem" class="header-button"/>
     </template>
   </Header>
 </template>
@@ -45,5 +45,11 @@ const links: Link[] = [
   &:hover {
     text-decoration: underline;
   }
+}
+
+.header-button{
+    font-size: toRem(20);
+    line-height: 100%;
+    letter-spacing: 0%;
 }
 </style>
