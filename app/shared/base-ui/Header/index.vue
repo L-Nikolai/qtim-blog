@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <Logo />
+    <NuxtLink to="/">
+      <Logo />
+    </NuxtLink>
     <span class="header__content">
       <slot name="links" />
       <span class="header__actions">
@@ -22,8 +24,7 @@ import Logo from '~/shared/icons/Logo.vue'
 
   &__content {
     @include flex-row(toRem(90));
-        align-items: center;
-
+    align-items: center;
   }
 
   &__actions {

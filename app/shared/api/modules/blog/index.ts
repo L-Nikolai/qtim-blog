@@ -8,7 +8,7 @@ export class Blog extends BaseModule {
     return this.api.get<BlogPost[]>(this.baseUrl)
   }
 
-  public async getBlogById(id: number): Promise<BlogPost[]> {
-    return this.api.get<BlogPost[]>(`${this.baseUrl}/${id}`)
+  public async getBlogById(id: string): Promise<BlogPost> {
+    return this.api.get<BlogPost>(`${this.baseUrl}/${id}`)
   }
 }
