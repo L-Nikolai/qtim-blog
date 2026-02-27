@@ -29,7 +29,7 @@ defineProps<ComponentProps>()
   box-sizing: border-box;
 
   li {
-    max-width: toRem(152);
+    max-width: toRem(200);
 
     &:first-child {
       margin-bottom: toRem(12);
