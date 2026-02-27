@@ -1,5 +1,5 @@
 import { defineNuxtPlugin } from 'nuxt/app'
-import { ApiProvider } from '@/shared/api/core/apiProvider'
+import { ApiProvider } from '~/shared/api/core/apiProvider'
 
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
