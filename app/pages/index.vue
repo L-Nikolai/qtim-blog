@@ -11,10 +11,27 @@
 <script lang="ts" setup>
 import { Card } from '~/modules/Blog'
 import { Pagination } from '~/shared/base-ui'
+
+const perPage: number = 8
+
+const route = useRoute()
+const router = useRouter()
 const { $api } = useNuxtApp()
 
-const currentPage = ref<number>(1)
-const perPage: number = 8
+const currentPage = computed({
+  get() {
+    const page = Number(route.query.page)
+    return page > 0 ? page : 1
+  },
+  set(value: number) {
+    router.replace({
+      query: {
+        ...route.query,
+        page: value !== 1 ? String(value) : undefined,
+      },
+    })
+  },
+})
 
 const { data: posts } = await useAsyncData('blog-posts', () =>
   $api.blog().getBlogs(),
@@ -31,6 +48,12 @@ const paginatedPosts = computed(() => {
   const end = start + perPage
 
   return posts.value.slice(start, end)
+})
+
+watchEffect(() => {
+  if (currentPage.value > totalPages.value) {
+    currentPage.value = 1
+  }
 })
 </script>
 
